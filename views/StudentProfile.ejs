@@ -1,0 +1,75 @@
+<%- include('sidebar-upper') -%>
+    <link rel="stylesheet" href="/CSS/StudentProfile.css">
+    <title>My Profile</title>
+    <%-include('sidebar-middle')-%>
+        <div id="mycontainer">
+            <form class="needs-validation" action="/changestudent" method="post" novalidate>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control mymargin" placeholder="name" name="Name" value="<%=thisstudent.Name%>" disabled>
+                    <label for="floatingInput">Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control mymargin" placeholder="name" value="<%=thisstudent.StudentID%>" disabled>
+                    <label for="floatingInput">Student ID</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control mymargin" placeholder="name@example.com" name="username" value="<%=thisstudent.username%>" readonly="readonly">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control mymargin" placeholder="name" name="Address" value="<%=thisstudent.Address%>" required>
+                    <label for="floatingInput">Address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control mymargin" placeholder="name" name="Phone" value="<%=thisstudent.PhoneNumber%>" required>
+                    <label for="floatingInput">Phone Number</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="string" class="form-control mymargin" placeholder="name" name="Resume" value="<%=thisstudent.Resume%>" required>
+                    <label for="floatingInput">Resume</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control mymargin" placeholder="name" value="<%=thisstudent.Age%>" disabled>
+                    <label for="floatingInput">Age</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control mymargin" placeholder="name" value="<%=thisstudent.Gender%>" disabled>
+                    <label for="floatingInput">Gender</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control mymargin" placeholder="name" value="<%=thisstudent.DOB%>" disabled>
+                    <label for="floatingInput">Date Of Birth(DD/MM/YYYY)</label>
+                </div>
+
+                <button type="submit" class="btn btn-secondary">Edit</button>
+            </form>
+        </div>
+        <!-- Do something Here -->
+        <script>
+            let element = document.getElementsByClassName('active')[0];
+            element.classList.remove("active");
+            element.style.color = "white";
+            document.getElementsByClassName('mylinks')[1].classList.add("active");
+
+            (() => {
+                'use strict'
+
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                const forms = document.querySelectorAll('.needs-validation')
+
+                // Loop over them and prevent submission
+                Array.from(forms).forEach(form => {
+                    form.addEventListener('submit', event => {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            })()
+        </script>
+        </body>
+
+        </html>

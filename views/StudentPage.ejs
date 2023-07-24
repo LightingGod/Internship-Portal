@@ -1,0 +1,76 @@
+<%- include('sidebar-upper') -%>
+    <link rel="stylesheet" href="/CSS/StudentPage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tapestry&display=swap" rel="stylesheet">
+    <title>Student Dashboard</title>
+<%- include('sidebar-middle')-%>
+
+        <!-- More things that has to be added. -->
+        <div id="home">
+            <!-- What to do in dasboard -->
+            <!-- 1.Selection in any programm or not -->
+
+            <div id="block">
+                <div id="leftside">
+                    <div id="photo">
+                        <img src="/Pics/mypic.png" alt="">
+                    </div>
+                    <div id="name" class="write">
+                        <%= thisstudent.Name %>
+                    </div>
+                    <div id="myWork" class="write">
+                        <%= thisstudent.Specialist %>
+                    </div>
+                </div>
+
+                <div id="rightside">
+                    <div id="upper">
+                        <h2 class="font1">Information</h2>
+                        <hr>
+                        <div id="info">
+                            <div id="Email">
+                                <h2 class="font1">Email </h2>
+                                <p class="font2" id="myEmail"><%= thisstudent.username %></p>
+                            </div>
+                            <div id="phone">
+                                <h2 class="font1 myphone">Phone Number</h2>
+                                <p class="font2 myphone" id="myPhonenumber">+91-<%= thisstudent.PhoneNumber %></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="lower">
+                        <h2 class="font1">Enrolled Internship</h2>
+                        <hr>
+                        <div id="Selection">
+                            <% if(myallInternships.length!=0){ %>
+                            <table id="select">
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Internship ID</th>
+                                    <th>Project Name</th>
+                                    <th>Faculty Name</th>
+                                    <th>Application Status</th>
+                                </tr>
+                                <% for(let i=0;i<myallInternships.length;i++){ %>
+
+                                <tr>
+                                    <td><%= i+1 %></td>
+                                    <td><%= myallInternships[i].InternshipID %></td>
+                                    <td><%= myallInternships[i].InternshipDetails.InternshipSubject %></td>
+                                    <td><%= myallInternships[i].InternshipDetails.FacultyName %> </td>
+                                    <td><%= myallInternships[i].InternshipStatus %></td>
+                                </tr>
+                                <% } %>   
+                            </table>
+                            <% } %>
+
+                            <% if(myallInternships.length==0){ %>
+                                <h2 class="font1">No Internship Applied.</h2>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<%-include('bottomstudent')-%>

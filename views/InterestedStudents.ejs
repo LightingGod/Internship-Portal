@@ -1,0 +1,45 @@
+<%-include('FacultyHeader')-%>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tapestry&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Css/InterestedStudents.css">
+    <title>Interested Students</title>
+    <%-include('FacultyNavbar')-%>
+    <h1 class="myfont center personal">Internship - <%= thisInternship %></h1>
+
+    <% if(InterestedStudent.length==0){%>
+        <h3>No Student Is Interested At This Time.Wait For Some Time To Get Responses.</h3>
+    <%}%>
+
+    <% if(InterestedStudent.length!=0){ %>
+        <table class="mytable center">
+            <tr>
+                <th>S.No</th>
+                <th>Student Name</th>
+                <th>Specialization</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Current Status</th>
+                <th>Approve Or Reject</th>
+            </tr>
+
+            <%for(let i=0;i<InterestedStudent.length;i++){%>
+                <form action="/changestatustoapprove" method="post">
+                    <tr>
+                        <td><%= i+1 %></td>
+                        <td><%=InterestedStudent[i].StudentDetails2.Name%></td>
+                        <td><%=InterestedStudent[i].StudentDetails1.Specialist%></td>
+                        <td><%=InterestedStudent[i].StudentDetails1.Age%></td>
+                        <td><%=InterestedStudent[i].StudentDetails1.Gender%></td>
+                        <td><%=InterestedStudent[i].InternshipStatus%></td>
+                        <input type="hidden" value="<%= InterestedStudent[i].InternshipID %>" name="InternshipID">
+                        <input type="hidden" value="<%= InterestedStudent[i].StudentUsername %>" name="username">
+                        <td><button type="submit" class="mybutt" style="background-color: green;">Approve</button><button type="submit" style="background-color: red;" class="mybutt" formaction="/changestatustoreject">Reject</button></td>
+                    </tr>
+                </form>
+            <%}%>
+        </table>
+    <%}%>
+</body>
+
+</html>

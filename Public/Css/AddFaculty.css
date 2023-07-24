@@ -1,0 +1,11 @@
+#myform{
+    width: 80vw;
+    margin-top: 4vw;
+    margin-left: 10vw;
+}
+
+.btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

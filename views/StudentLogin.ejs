@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Tapestry&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Css/StudentLogin.css">
+    <title>Student-Login</title>
+</head>
+<body>
+    <div id="container">
+
+        <div id="background"></div>
+
+        <div id="loginblock">
+
+            <div id="initial">
+                <a href="#" style="z-index: 2;"><button id="Login" class="butto" style="background-color: #414B4F;">Log In</button></a>
+                <a href="/studentregister"><button id="Register" class="butto">Register</button></a>
+            </div>
+
+            <div id="icons">
+                <a href=""><i class="fa-brands fa-google"></i></a>
+                <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                <a href=""><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            
+            <div id="fourm">
+                <form action="/studentlogin" method="post">
+                    <input type="email" name="username" id="email" class="inpu" placeholder="Enter Email_Id" required>
+                    <input type="password" name="password" id="Password" class="inpu" placeholder="Enter Your Password" required>
+                    <button id="submit" class="butto">Login</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://kit.fontawesome.com/24c1065ad6.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

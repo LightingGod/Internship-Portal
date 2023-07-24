@@ -1,0 +1,61 @@
+<%-include('FacultyHeader')-%>
+    <link rel="stylesheet" href="/Css/MakeInternship.css">
+    <title>Faculty Page</title>
+    <%-include('FacultyNavbar')-%>
+
+        <div id="container">
+            <form id="myfourm" action="/makeInternship" method="post">
+                <div id="one">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" name="InternshipID"
+                            placeholder="I.D">
+                        <label for="floatingInput">Internship I.D</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <!-- Get AutoMatically Filled and We cannot change it -->
+                        <input type="text" class="form-control" id="floatingInput" name="FacultyID" placeholder="I.D">
+                        <label for="floatingInput">Faculty I.D</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <!-- Get Automatically Filled and we cannot change it. -->
+                        <input type="text" class="form-control" id="floatingInput" name="FacultyName" placeholder="Name">
+                        <label for="floatingInput">Faculty Name</label>
+                    </div>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="Subject" placeholder="Subject">
+                    <label for="floatingInput">Subject</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <textarea type="text" class="form-control" id="floatingInput" name="Brief" placeholder="brief" rows="8"></textarea>
+                    <label for="floatingInput">Brief</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="Duration" placeholder="Duration">
+                    <label for="floatingInput">Duration</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput" name="Requirement" placeholder="Requirement">
+                    <label for="floatingInput">Requirement</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+            crossorigin="anonymous"></script>
+        </body>
+
+        </html>

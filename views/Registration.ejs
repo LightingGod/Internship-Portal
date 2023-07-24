@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Tapestry&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Css/StudentRegister.css">
+    <title>Student-Register</title>
+</head>
+<body>
+    <div id="container">
+
+        <div id="background"></div>
+
+        <div id="loginblock">
+
+            <div id="initial">
+                <a href="/studentlogin"><button id="Login" class="butto" style="z-index: 1;">Log In</button></a>
+                <a href="#"><button id="Register" class="butto" style="background-color: #414B4F;z-index: 2;">Register</button></a>
+            </div>
+
+            <div id="fourm2">
+                <form action="/studentregister" method="post">
+                    <div id="block1">
+                        <input type="text" name="name" class="inpu" placeholder="Enter Your Name" required>
+                        <input type="text" name="dob" class="inpu" placeholder="Enter Your Date Of Birth" required>
+                    </div>
+                    <div id="block2">
+                        <input type="number" name="age" class="inpu" placeholder="Enter Your Age" required>
+                        <input type="text" name="work" class="inpu" placeholder="Enter Your Work" required>
+                        <input type="text" name="gender" class="inpu" placeholder="Gender" required>
+                        <input type="text" name="phone" class="inpu" placeholder="Enter Your Phone Number" required>
+                    </div>
+                    <input type="text" name="address" id="address" class="inpu" placeholder="Enter Your Address" required>
+                    <input type="text" name="Resume" class="inpu" placeholder="Enter your Google drive Resume Link(Keep it visible to everyone)" required>
+                    <input type="email" name="username" id="email" class="inpu" placeholder="Enter Email Id" required>
+                    <input type="password" name="password" id="Password" class="inpu" placeholder="Set Your Password" required>
+                    <button id="submit" class="butto">Register</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://kit.fontawesome.com/24c1065ad6.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

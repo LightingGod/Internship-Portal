@@ -1,0 +1,80 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+#background{
+    background: url('/Pics/Internship_Back.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.8;
+}
+
+#loginblock {
+    width: 60vw;
+    position: absolute;
+    background-color: white;
+    opacity: 0.92;
+    top: 14vh;
+    left: 16vw;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 1vw 2vw 3vw 1vw black;
+}
+
+#initial{
+    display: flex;
+    justify-content: center;
+}
+
+.butto {
+    padding: 0.8rem 0.9rem;
+    font-size: 1vw;
+    border-radius: 32px;
+    width: 12vw;
+    margin-top: 3vw;
+    cursor: pointer;
+    margin-bottom: 1vw;
+    font-family: 'Playfair Display', serif;
+}
+
+#Register{
+    position: relative;
+    right: 3vw;
+}
+
+#fourm2 form{
+    display: flex;
+    flex-direction: column;
+}
+
+#block1, #block2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.inpu{
+    margin: 10px 10px;
+    padding: 3px;
+    height: 25px;
+    border-radius: 8px 4px 5px 0px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    text-align: center;
+}
+
+#submit{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color:  #414B4F;
+    color: white;
+}
+
+#submit:hover{
+    background-color:  #363d3f;   
+}

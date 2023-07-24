@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="/Css/MessagePage.css">
+</head>
+<title>Send Your Query</title>
+</head>
+
+<body>
+    <main class="d-flex flex-nowrap">
+        <div class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white myclass" style="width: 30vw;">
+            <a href="/"
+                class="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom">
+                <svg class="bi pe-none me-2" width="30" height="24">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-5 fw-semibold">IIIT Allahabad</span>
+            </a>
+            <div class="list-group list-group-flush border-bottom scrollarea">
+                <%if(studentavailable.length==0){%>
+                    <h3>No Student has applied to your internship and no query is there.</h3>
+                <% } %>
+
+                <%if(studentavailable.length!=0){%>
+                    <% for(let i = 0;i<studentavailable.length ;i++){ %>
+                        <%if(selectedstud!=null && studentavailable[i].username==selectedstud.studentID){%>
+                            <%let link = `/facultymessage/${studentavailable[i].username}` %>
+                            <a href=<%= link%> class="list-group-item list-group-item-action py-3 lh-sm active" aria-current="true">
+                                <div class="d-flex w-100 align-items-center justify-content-between">
+                                    <strong class="mb-1"><%= studentavailable[i].Name %></strong>
+                                </div>  
+                            </a>
+                        <%}%>
+                        <%if(selectedstud==null || studentavailable[i].username!=selectedstud.studentID){%>
+                            <%let link = `/facultymessage/${studentavailable[i].username}` %>
+                            <a href=<%= link%> class="list-group-item list-group-item-action py-3 lh-sm " aria-current="true">
+                                <div class="d-flex w-100 align-items-center justify-content-between">
+                                    <strong class="mb-1"><%= studentavailable[i].Name %></strong>
+                                </div>  
+                            </a>
+                        <%}%>
+                    <%}%>
+                <%}%>
+            </div>
+        </div>
+
+        <%if(Particulardata==null){%>
+            <div id="messagearea">
+                <p>Select any Student to start communicate</p>
+            </div>
+        <%}%>
+
+        <%if(Particulardata!=null){%>
+            <div id="messagearea">
+                <div id="namearea"><h2><%=selectedstud.Name%></h2></div>
+                <div id="textarea">
+                    <%if(Particulardata.length!=0){%>
+                        <%for(let i = 0;i<Particulardata.length;i++){%>
+                            <%if(Particulardata[i].SenderID==Particulardata[i].user1ID){%>
+                                <p class="othermessage"><%=Particulardata[i].body%></p>
+                            <%}%>
+                            <%if(Particulardata[i].SenderID==Particulardata[i].user2ID){%>
+                                <p class="mymessage"><%=Particulardata[i].body%></p>
+                            <%}%>
+                        <%}%>
+                    <%}%>
+                </div>
+                <div id="sendarea">
+                    <form action="/facultyaddmessage" method="post">
+                        <input type="text" class="inputbar" name="message" placeholder="Write your Query Here.">
+                        <input type="hidden" value="<%= selectedstud.studentID %>" name="user1ID">
+                        <input type="hidden" value="<%= selectedstud.facultyID %>" name="user2ID">
+                        <button class="sendbutton" type="submit"><img src="/Pics/send.png" alt=""></button>
+                    </form>
+                </div>
+            </div>
+        <%}%>
+
+    </main>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/24c1065ad6.js" crossorigin="anonymous"></script>
+    
+</body>
+
+</html>

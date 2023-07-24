@@ -1,0 +1,54 @@
+<%-include('FacultyHeader')-%>
+    <link rel="stylesheet" href="/Css/FacultyPage.css">
+    <title>Faculty Page</title>
+    <%-include('FacultyNavbar')-%>
+<!-- <%%> is used to pust something in js
+<%= %> is used to put variables. -->
+
+
+
+        <div id="myinternship">
+            <%if(thisfaculty.myInternships.length==0){%>
+                <h1>No Internship is made by you. Please Click On <span id="newintern">Make New Internship</span> to Create New Internship.</h1>
+            <%}%>
+            
+            <%if(thisfaculty.myInternships.length!=0){%>
+                <div id="container">
+                    <table>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Internship I.D</th>
+                            <th>Subject</th>
+                            <th>Duration</th>
+                            <th>Requirement</th>
+                            <th style="width: 25%;">Click below Link to See Interested Students Details</th>
+                        </tr>
+                        <%for(let i=0;i<thisfaculty.myInternships.length;i++){ %>
+                            <form action="/FindInterestedStudents" method="post">
+                                <tr>
+                                    <td><%= i+1%></td>
+                                    <td><input type="text" readonly="readonly" value="<%=thisfaculty.myInternships[i].InternshipID%>" class="myinputbar" name="InternshipID"></td>
+                                    <td><%=thisfaculty.myInternships[i].InternshipSubject%></td>
+                                    <td><%=thisfaculty.myInternships[i].Duration%></td>
+                                    <td><%=thisfaculty.myInternships[i].Requirement%></td>
+                                    <td><button type="submit" class="Link">Click Here</button></td>
+                                </tr>
+                            </form>
+                        <%}%>
+                    </table>
+                </div>
+            <%}%>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>

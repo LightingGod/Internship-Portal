@@ -1,0 +1,48 @@
+<%- include('sidebar-upper')-%>
+    <link rel="stylesheet" href="/Css/StudentInternshipPage.css">
+    <title>Internship</title>
+    <%-include('sidebar-middle')-%>
+    <!-- Do things Here. -->
+    <div id="container2">
+        <% if(myInternships.length==0){ %>
+            <h2>No Internship are Available At this time.Check Soon for New Internships.</h2>
+        <% } %>
+
+        <% if(myInternships.length!=0){ %>
+            <table id="mytable" style="width: 100%;">
+                <tr>
+                    <th>S.No</th>
+                    <th>Faculty Name</th>
+                    <th>Subject</th>
+                    <th style="width: 35%;">Brief</th>
+                    <th>Requirement</th>
+                    <th>Duration</th>
+                    <th>Apply</th>
+                </tr>
+                <% for(let i=0;i<myInternships.length;i++){ %>
+                    <form action="/updateInternship" method="post">
+                        <input type="hidden" name="InternshipID" value="<%= myInternships[i].InternshipID %>">
+                        <input type="hidden" name="username" value="<%= myusername %>">
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= myInternships[i].FacultyName %></td>
+                            <td><%= myInternships[i].InternshipSubject %></td>
+                            <td><%= myInternships[i].InternshipBrief %></td>
+                            <td><%= myInternships[i].Requirement %></td>
+                            <td><%= myInternships[i].Duration %></td>
+                            <td><button type="submit">Apply Now</button></td>
+                        </tr>
+                    </form>
+                <% } %>
+            </table>
+        <% } %>
+    </div>
+    <script>
+            let element = document.getElementsByClassName('active')[0];
+            element.classList.remove("active");
+            element.style.color = "white";
+            document.getElementsByClassName('mylinks')[2].classList.add("active");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+.navbar{
+    background-color: #414B4F;
+}
+.navbar-nav{
+    margin-left: auto;
+    margin-right: unset!important;
+}
+
+.navbar a{
+    color: white;
+}

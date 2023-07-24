@@ -1,0 +1,35 @@
+.personal{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.mytable{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.mytable th{
+    background-color: #414B4F;
+    color: white;
+    height: 2.3rem;
+}
+
+.mytable th,td{
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.myfont{
+    font-family: 'Tapestry', cursive;
+}
+
+.center{
+    text-align: center;
+}
+
+.mybutt{
+    margin-left: 3px;
+    border-radius: 5px;
+    color: white;
+}

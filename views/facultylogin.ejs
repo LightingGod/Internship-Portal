@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Tapestry&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Css/FacultyLogin.css">
+    <title>Faculty-Login</title>
+</head>
+<body>
+    <div id="header">
+        <div id="Name">
+            <div id="image"><img src="/Pics/CollegeLogo.png" alt="CollegeLogo"></div>
+            <div id="collegeName">IIIT Allahabad University</div>
+            <div id="portalname">Faculty Portal</div>
+        </div>
+    </div>
+
+    <div id="container">
+        
+        <div id="background"></div>
+        
+        <div id="loginblock">
+
+            <div id="about" class="colourgraphic">
+                IIIT Allahabad Faculty Login
+            </div>
+
+            <div id="fourm">
+                <form action="/facultyrequest" method="post">
+                    <input type="email" name="username" id="User_Id" class="inpu" placeholder="User_Id" required>
+                    <input type="password" name="password" id="Password" class="inpu" placeholder="Enter Your Password" required>
+                    <div id="sub">
+                        <button id="submit" class="butto">Log In</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+        <div id="timebar">
+            <span id="time"></span>
+        </div>
+
+    </div>
+
+    <script>
+        let time=document.getElementById('time');
+        setInterval(() => {
+            let date=new Date();
+
+            time.innerHTML=date;
+        }, 1000);
+    </script>
+</body>
+</html>

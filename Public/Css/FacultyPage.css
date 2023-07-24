@@ -1,0 +1,44 @@
+#myinternship{
+    margin-top: 35px;
+    padding: 40px;
+}
+
+#container table{
+    border-collapse: collapse;
+}
+
+#container th{
+    border: 2px solid grey;
+    padding: 6px;
+    background-color: #3e4040;
+    font-family: 'Playfair Display', serif;
+    color: white;
+    padding: 4px;
+}
+#container td{
+    border: 2px solid grey;
+    font-family: 'Playfair Display', serif;
+    padding: 6px;
+}
+
+#container table tr:hover{
+    background-color: #9e98984a;
+    cursor: pointer;
+}
+
+.Link{
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    background-color: white;
+    border-color: red;
+    width: 6rem;
+    border-radius: 2px;
+}
+
+.myinputbar{
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+}

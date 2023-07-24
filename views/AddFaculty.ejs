@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/AddFaculty.css">
+    <title>Add Faculty</title>
+</head>
+
+<body>
+    <h1 style="text-align: center; margin-top: 5vw; margin-bottom: 10vw;">Fill In the Details To Add Faculty</h1>
+    <form id="myform" action="/makefaculty" method="post">
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="FirstName">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="LastName">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" id="inputEmail4" name="username">
+            </div>
+            <div class="col">
+                <label for="facultyid" class="form-label">Faculty I.D</label>
+                <input type="text" class="form-control" placeholder="Faculty I.D" aria-label="Last name" name="FacultyID">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <div class="col-md-2">
+            <label for="phonenumber" class="form-label">Phone Number</label>
+            <input type="number" class="form-control" name="phone">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.mysize{
+    z-index: 3;
+    width: 280px;
+    height: 100vh;
+    background-color: #414B4F;
+    position: fixed;
+}
+
+.hr{
+    color: white;
+    height: 2px;
+    background-color: white;
+}
+
+.mylinks{
+    padding-left: 45px;
+    margin-top: 10px;
+    text-shadow: 1px 2px black;
+}
+.mylinks:hover{
+    background-color: #0d6efd;
+}

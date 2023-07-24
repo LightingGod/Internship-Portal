@@ -1,0 +1,152 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+#header{
+
+    background-color: #414B4F;
+    box-shadow: -1vw 1vw 2vw;
+    border-radius: 2px;
+
+}
+
+#Name{
+    display: flex;
+    align-items: center;
+}
+
+#image{
+    width: 3vw;
+    height: 3vw;
+    margin-top: 3px;
+    margin-left: 10px;
+    margin-bottom: 3px;
+}
+
+#image img{
+    width: 3vw;
+    height: 3vw;
+    border-radius: 45px;
+    background-color: white;
+}
+
+#collegeName{    
+    font-size: 3.2vw;
+    margin-left: 1.25vw;
+    color: white;
+    font-family: 'Tapestry', cursive;
+}
+
+#portalname{
+    font-size: 3.2vw;
+    position: absolute;
+    right: 1vw;
+    font-family: 'Tapestry', cursive;
+    color: white;  
+}
+
+#timebar{
+    margin-top: 20px;
+}
+
+#time {
+    color: white;
+    display: block;
+    text-align: center;
+}
+
+#container {
+    width: 90vw;
+    height: 47vw;
+    background-color: #919191;
+    margin: 34px auto;
+    border-radius: 22px;
+}
+
+#background {
+    background: url(/Pics/FacultyLogin.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 34vw;
+    height: 24vw;
+    position: absolute;
+    top: 16rem;
+    left: 10vw;
+}
+
+#loginblock {
+    width: 26vw;
+    position: absolute;
+    background-color: white;
+    opacity: 0.92;
+    top: 20rem;
+    left: 57vw;
+    padding: 22px;
+    border-radius: 22px;
+    box-shadow: 1vw 2vw 3vw 1vw black;
+}
+
+#about{
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 1rem;
+    font-family: 'Tapestry', cursive;
+}
+
+.butto {
+    padding: 10px;
+    border-radius: 5px;
+    width: 6vw;
+    margin-top: 3vw;
+    cursor: pointer;
+    margin-bottom: 1vw;
+    font-family: 'Playfair Display', serif;
+    background-color: #919191;
+    color: white;
+}
+
+#fourm form{
+    display: flex;
+    flex-direction: column;
+}
+
+.inpu{
+    width: 20vw;
+    padding: 12px;
+    margin-top: 18px;
+    margin-left: 24px;
+    margin-bottom: 4px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+}
+
+
+#submit{
+    margin-left: 9vw;
+}
+
+#submit:hover{
+    background-color:  #414B4F;   
+}
+
+.colourgraphic{
+    animation: colourchange .3s linear infinite;
+}
+
+
+
+@keyframes colourchange{
+    0%{
+        color: blueviolet;
+    }
+
+    50%{
+        color: blue;
+    }
+
+    100%{
+        color: blueviolet;
+    }
+}

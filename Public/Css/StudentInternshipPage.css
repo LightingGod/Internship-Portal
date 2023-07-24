@@ -1,0 +1,31 @@
+#container2{
+    /* width: 78vw; */
+    margin-left: 22vw;
+    padding: 4vw;
+}
+
+#mytable th,td{
+    border: 1px solid black;
+    padding: 6px 4px;
+}
+
+#mytable tr:hover{
+    background-color: #9e98984a;
+    cursor: pointer;
+}
+
+#mytable th{
+    height: 45px;
+    text-align: center;
+    background-color: #414B4F;
+    color: white;
+}
+
+#mytable button{
+    border-radius: 6px;
+}
+
+#mytable button:hover{
+    background-color: #414B4F;
+    color: white;
+}

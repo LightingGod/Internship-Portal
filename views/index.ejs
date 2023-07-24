@@ -1,0 +1,165 @@
+<%- include('header')-%>
+        
+        <!-- NavBar Changes -->
+        <link rel="stylesheet" href="/CSS/Navbar.css">
+        <!-- Custom Changes -->
+        <link rel="stylesheet" href="/CSS/Home.css">
+        <link rel="stylesheet" href="/CSS/Footer.css">
+        <link href="https://fonts.googleapis.com/css2?family=Tapestry&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <title>Summer Internship IIIT Allahabad</title>
+    <script>
+        Array.from(document.getElementsByClassName('links')).forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+<%- include('navbar')-%>
+
+    <!-- Carousel -->
+    <div id="mycontainer">
+        <div id="hhome">
+            <h1>Summer Internship Offered @ IIIT-Allahabad 2023</h1>
+        </div>
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="true">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner" data-bs-interval="1000">
+                <div class="carousel-item active">
+                    <img src="/Pics/BackGround-1.jpeg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="/Pics/BackGround-2.jpeg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="/Pics/BackGround-3.jpeg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="/Pics/BackGround-4.jpeg" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="/Pics/BackGround-5.jpeg" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="AboutIIIT">
+        <div id="Info">
+            <p class="aboutInfo">
+                Indian Institute of Information Technology, Allahabad (IIIT-Allahabad) is a public university
+                located in Jhalwa, Allahabad (Prayagraj), in Uttar Pradesh. It is one of the nineteen Indian
+                Institutes of Information Technology listed by the Ministry of Education (India).
+            </p>
+
+            <p class="aboutInfo">
+                Established in 1999, as a Centre of Excellence in Information Technology and allied areas, the
+                IIIT-A was conferred the Deemed University status by Govt. of India in the year 2000.
+            </p>
+
+            <p class="aboutInfo">
+                Each year our faculty members invest their time, effort & innovation in some great real-time
+                projects.The projects are listed below. A student can apply for a max of <span class="warning">03
+                    projects</span>. The last date to apply is<span class="warning"> 30th April 2022</span>. The
+                results will be up on the website by <span class="warning">15th May 2022</span> & the internship
+                will commence from <span class="warning">18th May 2022</span>.
+            </p>
+
+            <p class="aboutInfo">
+                The main aim of the internship is to provide an opportunity and exposure to the outstanding senior
+                level (2nd/ 3rd/ 4th Year) undergraduate student. B.Tech-M.Tech Dual Degree are also encouraged to
+                apply to interact with the world-class faculty members and state-of-the-art research facilities of
+                the institute.
+            </p>
+
+            <p class="aboutInfo">
+                Interested students from NITs, IIITs, IITs and other reputed central/ state institutions from all
+                over the country can apply. The offer will be selective, based on academic merit and SOP (Statement
+                of Purpose).
+            </p>
+        </div>
+
+        <div id="process">
+            <div id="processhead">
+                <h2>Process to apply for Internship</h2>
+            </div>
+            <ol id="processlist">
+                <li class="inst">The details of the project openings are listed below.</li>
+                <li class="inst">Click on <span class="warning">'Apply Here'</span> present Below in project</li>
+                <li class="inst">Login with your Google account</li>
+                <li class="inst">Fill the registration form. If you want hostel select the checkbox accordingly.
+                </li>
+                <li class="inst">For hostel booking details please contact at IIIT Allahabad</li>
+                <li class="inst">To apply for any project just click the apply button</li>
+                <li class="inst">Done</li>
+            </ol>
+            <div class="inst">Students who get selected for the summer internship at IIIT-Allahabad will be
+                receiving a stipend of 5k per month</div>
+        </div>
+    </div>
+
+    <div id="projectlist">
+        <% if(currintern.length!=0){ %>
+            <h2>Summer Internship Projects 2023 at IIIT-Allahabad</h2>
+            <div id="available">
+                <table>
+                    <tr>
+                        <th class="tablehead">S.No</th>
+                        <th class="tablehead">Faculty Name</th>
+                        <th class="tablehead">Project Name</th>
+                        <th class="tablehead">Project Details</th>
+                        <th class="tablehead">Duration</th>
+                        <th class="tablehead">Form Status</th>
+                    </tr>
+
+                    <% for(let i=0;i<currintern.length;i++){ %>
+                        <tr>
+                            <td class="tableitems"><%= i+1 %></td>
+                            <td class="tableitems"><%= currintern[i].FacultyName%></td>
+                            <td class="tableitems"><span><%= currintern[i].InternshipSubject%></span>
+                                <br>
+                                <a href="/studentlogin" class="newlink">Apply Here</a><br>
+                                <img alt="Gif Image" src="/Pics/Gif-3.gif"
+                                    style="width:25px; border:none; margin:0; display:inline; padding:0">
+                            </td>
+                            <td class="tableitems"><%= currintern[i].InternshipBrief%></td>
+                            <td class="tableitems"><%= currintern[i].Duration%></td>
+                            <td class="tableitems">Open</td>
+                        </tr>
+                    <% } %>
+                </table>
+            </div>
+        <% } %>
+
+        <% if(currintern.length==0){ %>
+            <h2>No Current Internship Available.</h2>
+        <% } %>
+    </div>
+<%- include('footer') -%>

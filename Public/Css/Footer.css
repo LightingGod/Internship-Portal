@@ -1,0 +1,47 @@
+#upperblock {
+    width: 100vw;
+    height: 2vw;
+    background-color: #2d3339;
+    z-index: 3;
+    position: absolute;
+    margin-top: 1.5vw;
+}
+
+#lowerblock {
+    width: 100vw;
+    height: 4.5vw;
+    background-color: #414B4F;
+    z-index: 4;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 3.4vw;
+    position: absolute;
+    border-top: 1px solid #aaa;
+    align-items: center;
+    padding-left: 5vw;
+}
+
+#copyright{
+    color: #aaa;
+}
+
+#socialnetworks{
+    margin-left: auto;
+    height: 30px;
+}
+
+#socialnetworks ul{
+    list-style: none;
+    display: flex;
+}
+
+#socialnetworks i {
+    margin-left: 1vw;
+    margin-right: 2vw;
+    color: white;
+}
+
+#socialnetworks li:hover{
+    transform: rotate(360deg);
+    transition: .5s;
+}
