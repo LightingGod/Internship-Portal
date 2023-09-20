@@ -4,8 +4,12 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
+const { createServer } = require('node:http');
+const { Server } = require('socket.io');
+
 
 const app = express();
+const server = createServer(app);
 
 app.set('view engine','ejs');       
 app.use(bodyParser.urlencoded({extended:true}));
@@ -17,6 +21,7 @@ app.use(session({
 }));  
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.json());
 
 mongoose.connect('mongodb://localhost:27017/NewInternshipPortal');
 
@@ -83,6 +88,134 @@ let MessageSchema = mongoose.Schema({
     body: String
 },{timestamps: true});
 const Message = new mongoose.model('Message',MessageSchema);
+
+
+
+
+// Socket Io Part
+const io = new Server(server);
+
+io.use((socket, next) => {
+    const username = socket.handshake.auth.username;
+    if (!username) {
+      return next(new Error("invalid username"));
+    }
+    socket.username = username;
+    next();
+});
+
+io.on('connection', (socket) => {
+    console.log('a user connected');
+    // console.log(socket.id);
+
+    // const users = [];
+    // for (let [id, socket] of io.of("/").sockets) {
+    //     users.push({
+    //         userID: id,
+    //         username: socket.username,
+    //     });
+    // }
+
+    // console.log(users);
+
+    // socket.emit("users", users);
+
+
+     // To recieve the message and then send it to particular user if logedIn otherwise save in the database.
+    socket.on("private message", async({ content, to }) => {
+        const users=[];
+        let senderID = null;
+        let reciverID = null;
+
+
+        for (let [id, socket] of io.of("/").sockets) {
+            users.push({
+                userID: id,
+                username: socket.username,
+            });
+        }
+
+        console.log(users);
+        console.log(content);
+
+        users.forEach((user)=>{
+            if(user.username===content.user2ID){
+                reciverID=user.userID;
+            }
+            if(user.username===content.user1ID){
+                senderID = user.userID
+            }
+        });
+
+        let messagedata = content.message;
+
+        let tempmessage = new Message({
+            user1ID: content.user1ID,
+            user2ID: content.user2ID,
+            SenderID: content.user1ID,
+            body: content.message
+        });
+        const resp = await tempmessage.save();
+        console.log(reciverID);
+        if(reciverID!=null){
+            socket.to(reciverID).emit("private message", {
+                content: messagedata,
+                from: content.user1ID,
+            });
+        }
+    });
+
+    socket.on("private message faculty", async({ content, to }) => {
+        const users=[];
+        let senderID = null;
+        let reciverID = null;
+
+
+        for (let [id, socket] of io.of("/").sockets) {
+            users.push({
+                userID: id,
+                username: socket.username,
+            });
+        }
+
+        users.forEach((user)=>{
+            if(user.username===content.user2ID){
+                senderID=user.userID;
+            }
+            if(user.username===content.user1ID){
+                reciverID = user.userID
+            }
+        });
+
+        let messagedata = content.message;
+
+        let tempmessage = new Message({
+            user1ID: content.user1ID,
+            user2ID: content.user2ID,
+            SenderID: content.user2ID,
+            body: content.message
+        });
+        const resp = await tempmessage.save();
+        console.log(reciverID);
+        if(reciverID!=null){
+            console.log("Hello");
+            socket.to(reciverID).emit("private message", {
+                content: messagedata,
+                from: content.user2ID,
+            });
+        }
+    });
+
+
+    socket.on('disconnect', () => {
+        console.log('user disconnected');
+    });
+});
+
+
+
+
+
 
 
 
@@ -349,7 +482,7 @@ app.get('/MakeMessage',async (req,res)=>{
     if(req.isAuthenticated() && req.user.__t=="Student"){
         const allfac = await Faculty.find({});
         const data = null;
-        res.render('MessagePage',{facultyavailable: allfac, Particulardata:data,selectedfac: data});
+        res.render('MessagePage',{facultyavailable: allfac, Particulardata:data, selectedfac: data, customuserid: req.user.username});
     }
     else{
         if(req.isAuthenticated()){
@@ -373,7 +506,7 @@ app.get('/MakeMessage/:User2ID',async (req,res)=>{
             Name: fac[0].Name,
             studentID: req.user.username
         }
-        res.render('MessagePage',{facultyavailable: allfac, Particulardata:data,selectedfac:mydata});
+        res.render('MessagePage',{facultyavailable: allfac, Particulardata:data, selectedfac:mydata, customuserid: req.user.username});
     }
     else{
         if(req.isAuthenticated()){
@@ -386,20 +519,6 @@ app.get('/MakeMessage/:User2ID',async (req,res)=>{
         }
     }
 })
-
-app.post('/addmessage',async (req,res)=>{
-    let tempmessage = new Message({
-        user1ID: req.body.user1ID,
-        user2ID: req.body.user2ID,
-        SenderID: req.body.user1ID,
-        body: req.body.message
-    });
-
-    const resp = await tempmessage.save();
-    res.redirect('/MakeMessage/'+req.body.user2ID);
-});
-
-
 
 // Making message interface for faculty
 app.get('/facultymessage',async (req,res)=>{
@@ -440,7 +559,7 @@ app.get('/facultymessage',async (req,res)=>{
         }
 
         const data = null;
-        res.render('FacultyMessage',{studentavailable: tempdata, Particulardata:data,selectedstud: data});
+        res.render('FacultyMessage',{studentavailable: tempdata, Particulardata:data,selectedstud: data,customuserid: req.user.facultyID});
     }
     else{
         if(req.isAuthenticated()){
@@ -499,7 +618,7 @@ app.get('/facultymessage/:User1ID',async (req,res)=>{
             Name: stud[0].Name,
             studentID: req.params.User1ID
         }
-        res.render('FacultyMessage',{studentavailable: tempdata, Particulardata: data,selectedstud: mydata});
+        res.render('FacultyMessage',{studentavailable: tempdata, Particulardata: data,selectedstud: mydata, customuserid: req.user.facultyID});
     }
     else{
         if(req.isAuthenticated()){
@@ -513,18 +632,6 @@ app.get('/facultymessage/:User1ID',async (req,res)=>{
     }
 });
 
-app.post('/facultyaddmessage',async (req,res)=>{
-    const tempmessage = new Message({
-        user1ID: req.body.user1ID,
-        user2ID: req.body.user2ID,
-        SenderID: req.body.user2ID,
-        body: req.body.message
-    });
-    const resp  = await tempmessage.save();
-    res.redirect('/facultymessage/'+req.body.user1ID);
-})
-
-app.listen(8080,()=>{
-    console.log("Server Has Started");
-})
-
+server.listen(8080, () => {
+    console.log('server running at http://localhost:8080');
+  });

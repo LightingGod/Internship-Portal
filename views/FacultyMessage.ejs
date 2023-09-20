@@ -72,16 +72,17 @@
                     <%}%>
                 </div>
                 <div id="sendarea">
-                    <form action="/facultyaddmessage" method="post">
-                        <input type="text" class="inputbar" name="message" placeholder="Write your Query Here.">
-                        <input type="hidden" value="<%= selectedstud.studentID %>" name="user1ID">
-                        <input type="hidden" value="<%= selectedstud.facultyID %>" name="user2ID">
-                        <button class="sendbutton" type="submit"><img src="/Pics/send.png" alt=""></button>
+                    <form id="messagesender" action="" method="">
+                        <input id="message" type="text" class="inputbar" name="message" placeholder="Write your Query Here.">
+                        <input id="user1ID" type="hidden" value="<%= selectedstud.studentID %>" name="user1ID">
+                        <input id="user2ID" type="hidden" value="<%= selectedstud.facultyID %>" name="user2ID">
+                        <button id="formsubmission" class="sendbutton" type="submit"><img src="/Pics/send.png" alt=""></button>
                     </form>
+
                 </div>
             </div>
         <%}%>
-
+        <div id="myuserid"><%= customuserid %></div>
     </main>
 
 
@@ -94,6 +95,8 @@
         integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/24c1065ad6.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="/Js/FacultySocket.js"></script>
     
 </body>
 
